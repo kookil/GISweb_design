@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>演出查询系统</title>
+    <style>
+        .ribbon {
+            display: flex;
+            justify-content: right;
+            position: absolute;
+            right: 300px;
+            top: 50px;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .ribbon:after,
+        .ribbon:before {
+            margin-top: 0.5em;
+            content: "";
+            display: flex;
+            ;
+            border: 1.5em solid #fff;
+        }
+
+        .ribbon:after {
+            border-right-color: transparent;
+        }
+
+        .ribbon:before {
+            border-left-color: transparent;
+        }
+
+        .ribbon a:link,
+        .ribbon a:visited {
+            color: #000;
+            text-decoration: none;
+            height: 3.5em;
+            overflow: hidden;
+        }
+
+        .ribbon span {
+            background: #fff;
+            display: inline-block;
+            line-height: 3em;
+            padding: 0 1.5em;
+            margin-top: 0.5em;
+            position: relative;
+            -webkit-transition: background-color 0.2s, margin-top 0.2s;
+            /* Saf3.2+, Chrome */
+            -moz-transition: background-color 0.2s, margin-top 0.2s;
+            /* FF4+ */
+            -ms-transition: background-color 0.2s, margin-top 0.2s;
+            /* IE10 */
+            -o-transition: background-color 0.2s, margin-top 0.2s;
+            /* Opera 10.5+ */
+            transition: background-color 0.2s, margin-top 0.2s;
+        }
+
+        .ribbon a:hover span {
+            background: #FFD204;
+            margin-top: 0;
+        }
+
+        .ribbon span:before {
+            content: "";
+            position: absolute;
+            top: 3em;
+            left: 0;
+            border-right: 0.5em solid #9B8651;
+            border-bottom: 0.5em solid #fff;
+        }
+
+        .ribbon span:after {
+            content: "";
+            position: absolute;
+            top: 3em;
+            right: 0;
+            border-left: 0.5em solid #9B8651;
+            border-bottom: 0.5em solid #fff;
+        }
+
+    </style>
+</head>
+<body style="background-color: white;">
+    <div class="content">
+    <h1 style="background-color: grey;">演出查询系统</h1>   
+        <div class='ribbon'>
+
+            <a href="/index" id="home" ><span>首页</span></a>
+            <a href='/dataset' id="dataset"><span>数据导入</span></a>
+            <a href='/map' id="map"><span>地图可视化</span></a>
+            <a href='/datavisual' id="datavisual"><span>数据可视化</span></a>
+            <a href='/find' id="find"><span>数据查找</span></a>
+        </div>
+        
+    </div>
+    <div style="background-color: rgb(163, 163, 163);margin-top: 250px;"> 
+        <h2>本网页包含功能为</h2>
+    </div>
+    <ul>
+        <li>查看秀动和大麦上现有票务数据</li>
+        <li>查看数据整体分布情况</li>
+        <li>根据需求自由检索数据</li>
+    </ul>
+    <div style="background-color: rgb(189, 189, 189);margin-top: 50px;"> 
+        <h2>更新日志</h2>
+    </div>
+    <ul>
+        <li>不知道哪天创建了文件夹</li>
+        <li>但是一直没怎么写</li>
+        <li>12.26设定好css</li>
+        <li>12.27搞echart</li>
+        <li>12.28搞echart</li>
+        <li>12.29放弃搞echart并将模板全部删除重做</li>
+    </ul>    
+</body>    
+</html>

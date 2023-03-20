@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 100%; height: 100%; margin: 0; font-family: '微软雅黑';">
+<head>
+    <meta charset="UTF-8">
+    <title>信息查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <div style="margin-top: 70px;display: inline-block;">
+    <label>日期</label>
+    <input id="date" type="date" value="2021-12-30"/>
+    <label>时间</label>
+    <input id="time" type="time" value="20:00"/>
+    <label>地点</label>
+    <select id="area" >
+        <option value='near'>1公里内</option>
+        <option value='mid'>10公里内</option>
+        <option value='fast'>10公里外</option>
+    </select>
+    <label>价格</label>
+    <select id="price" >
+        <option value='cheap'>100以内</option>
+        <option value='comfort'>200以内</option>
+        <option value='exp'>200以上</option>
+    </select>
+    <input type="button" value="find" onClick="find();"/>
+    <input type="button" value="clear" onClick="clear();"/>     
+    </div>
+    <div>
+        <textarea style="height: 200px;width: 400px;" id="findresult" name="findresult">{{u}}</textarea>
+    </div>
+    
+    
+    <script>
+        function find(){
+            var date,time,area,price;
+            date=document.getElementById("date").value;
+            time=document.getElementById("time").value;
+            area=document.getElementById("area").value;
+            price=document.getElementById("price").value;
+            var actJSON=[];
+            var actItem={};
+            actItem.date=date;
+            actItem.time=time;
+            actItem.area=area;
+            actItem.price=price;
+            actJSON.push(actItem);         
+            actJSON = JSON.stringify(actJSON);
+            var xhr = new XMLHttpRequest();
+            if (xhr) {
+                xhr.open("post","/findresult",true);
+                xhr.send(actJSON);
+            }
+        }
+        function load(){
+            var xhr = new XMLHttpRequest();
+            if (xhr) {
+                xhr.open("GET", "/findresult", true);
+                xhr.send(null);
+                acts = xhr.response;
+                console.log(acts)
+            }
+            acts = JSON.parse(acts);
+            alert(acts)
+        }
+        function clear(){
+            $('#findresult').val('')
+        }
+    </script>
+</body>
+</html>
